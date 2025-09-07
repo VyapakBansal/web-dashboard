@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyapak's Hub - Personal Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="electric-grid"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo">
+                    <i class="fas fa-cube"></i>
+                    Vyapak's Hub
+                </h1>
+            </div>
+            <div class="header-center">
+                <div class="datetime-display">
+                    <div class="date" id="current-date">Wednesday, June 11, 2025</div>
+                    <div class="time" id="current-time">12:34:56</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="profile-section">
+                    <button class="btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-content">
+            <!-- Now Watching Section -->
+            <section class="card now-watching">
+                <h2 class="card-title">
+                    <i class="fas fa-play-circle"></i>
+                    Now Watching
+                </h2>
+                <div class="now-watching-content">
+                    <div class="media-poster">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3Bvc3RlckdyYWRpZW50KSIvPgo8dGV4dCB4PSIxMDAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Nb3ZpZSBQb3N0ZXI8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBvc3RlckdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFhMWEyZTtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMTYyMTNlO3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPg==" alt="Current Show" id="current-poster">
+                        <div class="media-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="media-info">
+                        <h3 class="media-title" id="current-title">Breaking Bad</h3>
+                        <p class="media-description" id="current-description">A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.</p>
+                        <div class="media-controls">
+                            <button class="btn" id="add-to-finished">
+                                <i class="fas fa-check"></i>
+                                Mark as Finished
+                            </button>
+                            <button class="btn" id="change-current">
+                                <i class="fas fa-edit"></i>
+                                Change Show
+                            </button>
+                            <button class="btn watch-now-current-btn" id="watch-now-current">Watch Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Watchlist Section -->
+            <section class="card watchlist">
+                <h2 class="card-title">
+                    <i class="fas fa-list"></i>
+                    Watchlist (Next Up)
+                </h2>
+                <div class="watchlist-content">
+                    <div class="watchlist-items" id="watchlist-items">
+                        <div class="watchlist-item">
+                            <div class="watchlist-info">
+                                <h4>The Witcher Season 3</h4>
+                                <div class="watchlist-meta">Fantasy • TV Series • High Priority</div>
+                            </div>
+                            <div class="watchlist-actions">
+                                <button class="btn watch-now-btn" data-title="The Witcher Season 3">Watch Now</button>
+                            </div>
+                        </div>
+                        <div class="watchlist-item">
+                            <div class="watchlist-info">
+                                <h4>Dune: Part Two</h4>
+                                <div class="watchlist-meta">Sci-Fi • Movie • Medium Priority</div>
+                            </div>
+                            <div class="watchlist-actions">
+                                <button class="btn watch-now-btn" data-title="Dune: Part Two">Watch Now</button>
+                            </div>
+                        </div>
+                        <div class="watchlist-item">
+                            <div class="watchlist-info">
+                                <h4>House of the Dragon S2</h4>
+                                <div class="watchlist-meta">Fantasy • TV Series • High Priority</div>
+                            </div>
+                            <div class="watchlist-actions">
+                                <button class="btn watch-now-btn" data-title="House of the Dragon S2">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="watchlist-actions">
+                        <button class="btn" id="add-to-watchlist">
+                            <i class="fas fa-plus"></i>
+                            Add New Show/Movie
+                        </button>
+                        <button class="btn" id="manage-watchlist">
+                            <i class="fas fa-cog"></i>
+                            Manage List
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section class="card calendar">
+                <h2 class="card-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    This Month
+                </h2>
+                <div class="calendar-header">
+                    <button class="btn calendar-nav" id="prev-month">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="calendar-month-year">June 2025</h3>
+                    <button class="btn calendar-nav" id="next-month">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="calendar-weekdays">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar days will be generated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section class="card messages">
+                <h2 class="card-title">
+                    <i class="fas fa-envelope"></i>
+                    Messages & Notifications
+                </h2>
+                <div class="messages-content">
+                    <div class="message-item">
+                        <div class="message-info">
+                            <i class="fas fa-tv message-icon"></i>
+                            <div>
+                                <h4>New Episodes Available</h4>
+                                <p>The Bear Season 3 - Episode 5 is now streaming</p>
+                            </div>
+                        </div>
+                        <div class="message-badge">3</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-info">
+                            <i class="fas fa-star message-icon"></i>
+                            <div>
+                                <h4>Recommendations</h4>
+                                <p>Based on your viewing history, you might like...</p>
+                            </div>
+                        </div>
+                        <div class="message-badge">5</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-info">
+                            <i class="fas fa-clock message-icon"></i>
+                            <div>
+                                <h4>Reminders</h4>
+                                <p>Don't forget to continue watching Breaking Bad</p>
+                            </div>
+                        </div>
+                        <div class="message-badge">1</div>
+                    </div>
+                </div>
+                <div class="messages-actions">
+                    <button class="btn" id="mark-all-read">
+                        <i class="fas fa-check-double"></i>
+                        Mark All Read
+                    </button>
+                    <button class="btn" id="notification-settings">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </button>
+                </div>
+            </section>
+
+            <!-- Quick Stats Section -->
+            <section class="card stats">
+                <h2 class="card-title">
+                    <i class="fas fa-chart-bar"></i>
+                    Your Stats
+                </h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="shows-watched">127</div>
+                        <div class="stat-label">Shows Watched</div>
+                        <div class="stat-change positive">+3 this month</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="hours-watched">2,847</div>
+                        <div class="stat-label">Hours Watched</div>
+                        <div class="stat-change positive">+42 this month</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="watchlist-count">23</div>
+                        <div class="stat-label">In Watchlist</div>
+                        <div class="stat-change neutral">Same as last month</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="genres-explored">12</div>
+                        <div class="stat-label">Genres Explored</div>
+                        <div class="stat-change positive">+1 this month</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="card quick-actions">
+                <h2 class="card-title">
+                    <i class="fas fa-bolt"></i>
+                    Quick Actions
+                </h2>
+                <div class="actions-grid">
+                    <button class="action-btn" id="random-pick">
+                        <i class="fas fa-dice"></i>
+                        <span>Random Pick</span>
+                        <small>Can't decide? Let us choose!</small>
+                    </button>
+                    <button class="action-btn" id="continue-watching">
+                        <i class="fas fa-play"></i>
+                        <span>Continue Watching</span>
+                        <small>Resume your current show</small>
+                    </button>
+                    <button class="action-btn" id="discover-new">
+                        <i class="fas fa-search"></i>
+                        <span>Discover</span>
+                        <small>Find something new</small>
+                    </button>
+                    <button class="action-btn" id="my-reviews">
+                        <i class="fa-brands fa-spotify"></i>
+                        <span>Listen to Spotify</span>
+                        <small>Open your Spotify client instantly!</small>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="add-show-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add to Watchlist</h3>
+                <button class="close-btn" id="close-add-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="add-show-form">
+                    <div class="form-group">
+                        <label for="show-title">Title</label>
+                        <input type="text" id="show-title" name="title" placeholder="Enter show/movie title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="show-type">Type</label>
+                        <select id="show-type" name="type">
+                            <option value="tv">TV Series</option>
+                            <option value="movie">Movie</option>
+                            <option value="documentary">Documentary</option>
+                            <option value="anime">Anime</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="show-genre">Genre</label>
+                        <input type="text" id="show-genre" name="genre" placeholder="Action, Drama, Comedy...">
+                    </div>
+                    <div class="form-group">
+                        <label for="show-link">Website Link</label>
+                        <input type="text" id="show-link" name="link" placeholder="https://...">
+                    </div>
+                    <div class="form-group" id="series-fields" style="display:none;">
+                        <label for="show-season">Season</label>
+                        <input type="number" id="show-season" name="season" min="1" value="1">
+                        <label for="show-episode">Episode</label>
+                        <input type="number" id="show-episode" name="episode" min="1" value="1">
+                        <label for="show-total-seasons">Total Seasons</label>
+                        <input type="number" id="show-total-seasons" name="totalSeasons" min="1" value="1">
+                        <label for="show-episodes-in-season">Episodes in Season</label>
+                        <input type="number" id="show-episodes-in-season" name="episodesInSeason" min="1" value="1">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn secondary" id="cancel-add">Cancel</button>
+                        <button type="submit" class="btn primary">Add to Watchlist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Changing Now Watching -->
+    <div class="modal" id="change-now-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Now Watching</h3>
+                <button class="close-btn" id="close-change-now-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="change-now-form">
+                    <div class="form-group">
+                        <label for="now-title">Title</label>
+                        <input type="text" id="now-title" name="title" placeholder="Enter show/movie title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="now-type">Type</label>
+                        <select id="now-type" name="type">
+                            <option value="tv">TV Series</option>
+                            <option value="movie">Movie</option>
+                            <option value="documentary">Documentary</option>
+                            <option value="anime">Anime</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="now-link">Website Link</label>
+                        <input type="text" id="now-link" name="link" placeholder="https://...">
+                    </div>
+                    <div class="form-group" id="now-series-fields" style="display:none;">
+                        <label for="now-season">Season</label>
+                        <input type="number" id="now-season" name="season" min="1" value="1">
+                        <label for="now-episode">Episode</label>
+                        <input type="number" id="now-episode" name="episode" min="1" value="1">
+                        <label for="now-total-seasons">Total Seasons</label>
+                        <input type="number" id="now-total-seasons" name="totalSeasons" min="1" value="1">
+                        <label for="now-episodes-in-season">Episodes in Season</label>
+                        <input type="number" id="now-episodes-in-season" name="episodesInSeason" min="1" value="1">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn secondary" id="cancel-change-now">Cancel</button>
+                        <button type="submit" class="btn primary">Change Now Watching</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>
